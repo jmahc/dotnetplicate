@@ -8,6 +8,12 @@ In the command-line, navigate to the directory where you want to replicate the c
 
 ---
 
+## To-do's
+- Testing
+- Distinguish repository & controllers?
+
+--
+
 ## Thanks
 Heavily inspired by [generact].
 
