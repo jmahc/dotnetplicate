@@ -13,7 +13,7 @@
     "yarn": ">=0.27.5"
   },
   "bin": {
-    "generact": "dist/cli.js"
+    "dotnetplicate": "dist/cli.js"
   },
   "files": ["dist"],
   "scripts": {
@@ -23,9 +23,12 @@
     "flow": "flow check",
     "lint": "eslint src",
     "postmerge": "yarn",
+    "postpublish": "git push origin master --follow-tags",
     "prebuild": "npm run clean",
     "precommit": "lint-staged",
-    "release": "standard-version"
+    "prepublish": "npm run build",
+    "release": "standard-version",
+    "watch": "npm-watch"
   },
   "watch": {
     "build": "src",
