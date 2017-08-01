@@ -1,3 +1,5 @@
+// @flow
+
 import { gray } from 'chalk'
 import glob from 'glob'
 import { camelCase, upperFirst } from 'lodash'
@@ -37,9 +39,7 @@ export const isSingleFile = (path: string): boolean => {
 
 export const getFiles = (cwd: string, controllerName?: string): string[] => {
   const extensions = '{cs}'
-  const pattern = controllerName
-    ? `**/${controllerName}{.,.*.}${extensions}`
-    : `**/*.${extensions}`
+  const pattern = controllerName ? `**/${controllerName}{.,.*.}${extensions}` : `**/*.${extensions}`
 
   return glob.sync(pattern, { cwd, absolute: true, nodir: true })
 }
@@ -60,11 +60,7 @@ export const getControllerFiles = (root: string): Promise<InquirerFile[]> => {
   )
 }
 
-export const replaceContents = (
-  contents: string,
-  oldName: string,
-  newName: string
-): string =>
+export const replaceContents = (contents: string, oldName: string, newName: string): string =>
   contents.replace(
     new RegExp(`([^a-zA-Z0-9_$])${oldName}([^a-zA-Z0-9_$]|Container)`, 'g'),
     `$1${newName}$2`

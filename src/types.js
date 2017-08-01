@@ -1,3 +1,5 @@
+// @flow
+
 export type InquirerFile = {
   name: string,
   short: string,

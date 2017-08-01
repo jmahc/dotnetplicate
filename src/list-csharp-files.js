@@ -1,3 +1,4 @@
+// @flow
 import glob from 'glob'
 
 const globs = {
@@ -11,11 +12,7 @@ const globs = {
 const listCSharpFiles = (cwd: string): Promise<string[]> => {
   const patterns = Object.keys(globs).map(key => globs[key])
   const pattern = `**/{${patterns.join(',')}}`
-  const ignore = [
-    '**/node_modules/**',
-    '**/{__tests__,test,tests}/**',
-    '**/*.{test,spec}.*'
-  ]
+  const ignore = ['**/node_modules/**', '**/{__tests__,test,tests}/**', '**/*.{test,spec}.*']
 
   return new Promise((resolve, reject) => {
     glob(pattern, { cwd, ignore }, (err, files) => {
